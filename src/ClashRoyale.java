@@ -9,7 +9,7 @@ public class ClashRoyale{
     }
 
     public static void jugar(){
-        int eleccion = 0;
+        int eleccion;
         boolean eleccionArena = false;
         System.out.println("Elija la dificultad:");
         while (!eleccionArena){
@@ -21,7 +21,7 @@ public class ClashRoyale{
                     System.out.println("Por favor elija un valor entre el 1 y el 3.");
 
                 }else {
-                    Arena.seleccionDeArena(eleccion);
+                    Arena arena = new Arena(eleccion);
                     eleccionArena = true;
                 }
             }catch (InputMismatchException e){
@@ -30,9 +30,9 @@ public class ClashRoyale{
 
 
         }
-        if (eleccionArena){
 
-        }
+        Arena.mostrarArena();
+
 
 
 

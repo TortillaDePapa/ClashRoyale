@@ -1,39 +1,102 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class Arena {
 
+    public static  String[][] tamañoArena ;
+    public Arena(int eleccion){
 
-    public Arena(){
-
-    }
-
-    public static String[][] seleccionDeArena(int eleccion){
-        String[][] tamañoArena = new String[0][0];
+        Random azar = new Random();
+        int aleatorio ;
         switch (eleccion){
             case 1:
                 tamañoArena = new String[10][10];
+                aleatorio =  azar.nextInt(tamañoArena.length-1);
                 for (int i = 0; i <tamañoArena.length ; i++) {
                     Arrays.fill(tamañoArena[i],"*");
+                }
+                tamañoArena[tamañoArena.length-1][tamañoArena.length-1] = "J";
+                tamañoArena[0][0] = "M";
+                for (int i =0; i < 4; i++){
+                    if (tamañoArena[aleatorio][aleatorio]!= "J" && tamañoArena[aleatorio][aleatorio]!= "M" && tamañoArena[aleatorio][aleatorio]!= "O") {
+                        tamañoArena[aleatorio][aleatorio] ="O";
+                    }else{
+                        aleatorio =  azar.nextInt(tamañoArena.length-1);
+                        i--;
+                    }
                 }
 
                 break;
             case 2:
                 tamañoArena = new String[15][10];
+                aleatorio =  azar.nextInt(tamañoArena.length);
                 for (int i = 0; i <tamañoArena.length ; i++) {
                     Arrays.fill(tamañoArena[i],"*");
                 }
+                tamañoArena[tamañoArena.length-1][tamañoArena.length-1] = "J";
+                tamañoArena[0][0] = "M";
+                for (int i =0; i < 4; i++){
+                    if (tamañoArena[aleatorio][aleatorio]!= "J" && tamañoArena[aleatorio][aleatorio]!= "M" && tamañoArena[aleatorio][aleatorio]!= "O") {
+                        tamañoArena[aleatorio][aleatorio] ="O";
+                    }else{
+                        aleatorio =  azar.nextInt(tamañoArena.length);
+                        i--;
+                    }
+                }
+
                 break;
             case 3:
                 tamañoArena = new String[30][15];
+                aleatorio =  azar.nextInt(tamañoArena.length);
                 for (int i = 0; i <tamañoArena.length ; i++) {
                     Arrays.fill(tamañoArena[i],"*");
                 }
+                tamañoArena[tamañoArena.length-1][tamañoArena.length-1] = "J";
+                tamañoArena[0][0] = "M";
+                for (int i =0; i < 7; i++){
+                    if (tamañoArena[aleatorio][aleatorio]!= "J" && tamañoArena[aleatorio][aleatorio]!= "M" && tamañoArena[aleatorio][aleatorio]!= "O") {
+                        tamañoArena[aleatorio][aleatorio] ="O";
+                    }else{
+                        aleatorio =  azar.nextInt(tamañoArena.length);
+                        i--;
+                    }
+                }
+
                 break;
             default:
-                tamañoArena = new String[10][10];
+                aleatorio =  azar.nextInt(tamañoArena.length);
+                for (int i = 0; i <tamañoArena.length ; i++) {
+                    Arrays.fill(tamañoArena[i],"*");
+                }
+                tamañoArena[tamañoArena.length-1][tamañoArena.length-1] = "J";
+                tamañoArena[0][0] = "M";
+                for (int i =0; i < 2; i++){
+                    if (tamañoArena[aleatorio][aleatorio]!= "J" && tamañoArena[aleatorio][aleatorio]!= "M" && tamañoArena[aleatorio][aleatorio]!= "O") {
+                        tamañoArena[aleatorio][aleatorio] ="O";
+                    }else{
+                        aleatorio =  azar.nextInt(tamañoArena.length);
+                        i--;
+                    }
+                }
+
+                break;
 
         }
-        return tamañoArena;
+
+    }
+
+
+
+
+
+    public static void mostrarArena(){
+        for (int i = 0; i <tamañoArena.length ; i++) {
+            for (int j = 0; j <tamañoArena[0].length ; j++) {
+                System.out.print(tamañoArena[i][j]);
+            }
+            System.out.println();
+        }
+
     }
 
 }
