@@ -49,7 +49,6 @@ public class Arena {
                 break;
             case 3:
                 tamañoArena = new String[30][15];
-                tamañoArena = new String[15][10];
                 aleatorio =  azar.nextInt(tamañoArena.length);
                 aleatorio2 = azar.nextInt(tamañoArena[0].length);
                 for (int i = 0; i <tamañoArena.length ; i++) {
