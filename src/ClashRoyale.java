@@ -12,7 +12,7 @@ public class ClashRoyale{
         int eleccion;
         boolean eleccionArena = false;
         System.out.println("Elija la dificultad:");
-        while (!eleccionArena){
+        while (!eleccionArena){ // Le pedimos al usuario que elija una de las 3 dificultades
             Scanner sc = new Scanner(System.in);
             System.out.println(" 1.Chica (10X10). \n 2.Mediana (15X10). \n 3.Grande (30X15). ");
             try {
@@ -31,8 +31,20 @@ public class ClashRoyale{
 
         }
 
-        Arena.mostrarArena();
-
+        Arena.mostrarArena();// Mostramos la arena seleccionada por el jugador
+        boolean hayGanador = false;
+        System.out.println("Con las teclas WASD te mueves como en cualquier otro juego pero solo una casilla a la vez y Q con atacas.\n");
+        while (!hayGanador){
+            for (int i = 0; i <=1 ; i++) {
+                if (i ==0){
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Jugador elije tu siguiente movimiento:");
+                    String movimiento = sc.next();
+                    Jugador.movimiento(movimiento);
+                    Arena.mostrarArena();
+                }
+            }
+        }
 
 
 
